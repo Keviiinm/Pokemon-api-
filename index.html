@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokédex - Consumo API Rest</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <div class="container">
+        <!-- Título de la aplicación -->
+        <h1 class="title">Pokédex</h1>
+        
+        <!-- Contenedor principal de la Pokédex -->
+        <div class="pokedex">
+            <!-- Panel superior: Imagen y nombre -->
+            <div class="pokemon-header">
+                <img id="pokemonImage" src="" alt="Pokémon" class="pokemon-image">
+                <div class="pokemon-title-info">
+                    <h2 id="pokemonName" class="pokemon-name">Cargando...</h2>
+                    <p id="pokemonId" class="pokemon-id"></p>
+                </div>
+            </div>
+            
+            <!-- Tipos del Pokémon -->
+            <div class="pokemon-types">
+                <span class="type-label">Tipo:</span>
+                <div id="pokemonTypes" class="types-container"></div>
+            </div>
+            
+            <!-- Estadísticas del Pokémon -->
+            <div class="pokemon-stats">
+                <div class="stat-item">
+                    <span class="stat-name">HP</span>
+                    <div class="stat-bar">
+                        <div id="stat-hp" class="stat-fill"></div>
+                    </div>
+                    <span id="stat-hp-value" class="stat-value">--</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-name">ATK</span>
+                    <div class="stat-bar">
+                        <div id="stat-attack" class="stat-fill"></div>
+                    </div>
+                    <span id="stat-attack-value" class="stat-value">--</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-name">DEF</span>
+                    <div class="stat-bar">
+                        <div id="stat-defense" class="stat-fill"></div>
+                    </div>
+                    <span id="stat-defense-value" class="stat-value">--</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-name">SP.A</span>
+                    <div class="stat-bar">
+                        <div id="stat-spAtk" class="stat-fill"></div>
+                    </div>
+                    <span id="stat-spAtk-value" class="stat-value">--</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-name">SP.D</span>
+                    <div class="stat-bar">
+                        <div id="stat-spDef" class="stat-fill"></div>
+                    </div>
+                    <span id="stat-spDef-value" class="stat-value">--</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-name">SPD</span>
+                    <div class="stat-bar">
+                        <div id="stat-speed" class="stat-fill"></div>
+                    </div>
+                    <span id="stat-speed-value" class="stat-value">--</span>
+                </div>
+            </div>
+            
+            <!-- Botones de navegación -->
+            <div class="buttons-container">
+                <button id="prevBtn" class="btn btn-prev">← Anterior</button>
+                <button id="nextBtn" class="btn btn-next">Siguiente →</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

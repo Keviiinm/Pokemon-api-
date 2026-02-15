@@ -3,7 +3,7 @@
    ========================================== */
 :root {
     --bg-main: #000000;       /* Fondo de la página (gris muy claro/azulino) */
-    --card-bg: #ffffff;       /* Fondo de la tarjeta (blanco puro) */
+    --card-bg: #ffffffec;       /* Fondo de la tarjeta (blanco puro) */
     --accent: #6366f1;        /* Color de acento (índigo moderno) */
     --text-main: #1e293b;     /* Gris casi negro para legibilidad */
     --text-light: #ffffff;    /* Gris medio para info secundaria */
@@ -60,11 +60,44 @@ body {
    TARJETA POKÉDEX (MINIMALISTA)
    ========================================== */
 .pokedex {
-    background: var(--card-bg);
+    position: relative;
+    /* 1. Quitamos el background de aquí para que no interfiera */
+    background: transparent; 
     border-radius: var(--radius);
-    box-shadow: var(--shadow);
     padding: 32px;
-    border: 1px solid rgba(255, 255, 255, 0.8);
+    /* 2. El z-index lo ponemos en 0 o lo quitamos para que los hijos manden */
+    z-index: 1; 
+    overflow: hidden;
+    
+}
+
+.pokedex::before {
+    content: "";
+    position: absolute;
+    /* 3. El RGB va al fondo de todo */
+    z-index: -1; 
+    left: -50%;
+    top: -50%;
+    width: 200%;
+    height: 200%;
+    background-image: conic-gradient(#ff0000, #ff8000, #ffff00, #00ff00, #00ffff, #0000ff, #8000ff, #ff00ff, #ff0000);
+    animation: rotate-rgb 4s linear infinite;
+}
+
+/* Este es el "escudo" que tapa el centro y deja ver solo el borde */
+.pokedex::after {
+    content: "";
+    position: absolute;
+    /* 4. Este se sitúa encima del RGB pero debajo del contenido real */
+    z-index: -1; 
+    /* El grosor del borde (2px o 3px se ve más minimalista) */
+    left: 2px;  
+    top: 2px;
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+    /* 5. Aquí es donde ponemos el color de fondo de la tarjeta */
+    background: var(--card-bg); 
+    border-radius: calc(var(--radius) - 1px);
 }
 
 /* Header: Imagen y Título */
@@ -230,5 +263,11 @@ body {
 @media (max-width: 480px) {
     .pokedex {
         padding: 24px;
+    }
+}
+
+@keyframes rotate-rgb {
+    100% {
+        transform: rotate(360deg);
     }
 }

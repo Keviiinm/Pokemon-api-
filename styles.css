@@ -23,18 +23,27 @@
 
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background-color: var(--bg-main);
+    background-image:
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+        url('imagen/pokemon-sword-and-shield-poster-art-uhd-4k-wallpaper.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: 0.5;
     color: var(--text-main);
-    min-height: 100vh;
+    width: 100%;
+    height: 120vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 10px;
+    
 }
 
 .container {
     width: 100%;
-    max-width: 420px; /* Un poco más estrecho para verse más elegante */
+    max-width: 420px;
+    
 }
 
 .title {
@@ -108,7 +117,7 @@ body {
 }
 
 .type-label {
-    display: none; /* En minimalismo, el color ya indica el tipo */
+    display: none;
 }
 
 .types-container {
